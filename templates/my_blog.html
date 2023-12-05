@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block content %}
+<h1>我的博客Ciallo～(∠・ω< )⌒☆</h1>
+<hr style="border-top: 1px solid red;">
+<ul>
+    {% for post in posts %}
+      <li>
+        <a href="{{ url_for('post_detail', post_id=post[0]) }}">{{ post[1] }}</a>
+        <p>作者：{{ post[8] }}</p>
+        <p>发布时间：{{ post[3] }}</p>
+      </li>
+    <hr style="border-top: 1px solid red;">
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>发布博客</h1>
+  <form method="post">
+    <div>
+      <label>标题：</label>
+      <input type="text" name="title" required>
+    </div>
+    <div>
+      <label>内容：</label>
+      <textarea name="body" required></textarea>
+    </div>
+    <button type="submit">发布</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+个人中心
+{% endblock %}
+
+{% block content %}
+<h1>个人中心</h1>
+<hr>
+<ul>
+    <table>
+    <li>
+        <p>用户名: {{person[3]}}</p>
+    </li>
+</table>
+    <hr style="border-top: 1px solid red; margin-top: 40px;">
+
+<a href="/blog/chperson" style="button">修改信息</a>
+
+</ul>
+{% endblock %}

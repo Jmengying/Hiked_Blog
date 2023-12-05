@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+我的评论
+{% endblock %}
+
+{% block content %}
+<h1>我的评论</h1>
+<hr>
+<ul>
+  {% for comment in comments %}
+  <li>
+     <a href="{{ url_for('post_detail', post_id=comment[9]) }}">{{ comment[6] }}</a>
+    <p>发布时间: {{comment[7]}}</p>
+  </li>
+
+  <hr style="border-top: 1px solid red;">
+    {% endfor %}
+</ul>
+
+{% endblock %}

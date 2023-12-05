@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>注册</h1>
+  {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+  <form method="post">
+    <div class="login-box">
+
+      <label>用户名：</label>
+      <input type="text" name="username" required>
+      <label>密码：</label>
+      <input type="password" name="password" required>
+      <label>姓名：</label>
+      <input type="text" name="name" required>
+      <button type="submit">注册</button>
+
+    </div>
+  </form>
+{% endblock %}

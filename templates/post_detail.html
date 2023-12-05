@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ post[1] }}</h1>
+  <p>作者：{{ post[8] }}</p>
+  <p>发布时间：{{ post[3] }}</p>
+  <p>{{ post[2] }}</p>
+  <hr style=" margin-top: 20px; margin-bottom: 20px;">
+  <h2>评论</h2>
+  {% if session.get('username') %}
+    <form method="post" action="{{ url_for('comment') }}">
+      <input type="hidden" name="post_id" value="{{ post[0] }}">
+      <div>
+        <label>评论：</label>
+        <textarea name="body" required></textarea>
+      </div>
+      <button type="submit">提交</button>
+    </form>
+  {% else %}
+    <p><a href="{{ url_for('login') }}">登录</a>后才能发表评论。</p>
+  {% endif %}
+<hr style="border-top: 2px solid red;">
+  {% if comments %}
+    <ul>
+      {% for comment in comments %}
+        <li>
+          <p>{{ comment[1] }}</p>
+          <p>作者：{{ comment[8] }}</p>
+          <p>评论时间：{{ comment[2] }}</p>
+        </li>
+      <hr style="border-top: 1px solid red;">
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>暂无评论。</p>
+  {% endif %}
+{% endblock %}
